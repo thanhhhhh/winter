@@ -1,0 +1,20 @@
+{
+  "name": "winter",
+  "description": "game made with type script",
+  "main": "index.js",
+  "authors": [
+    "tom"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "commonjs": "^0.2.0"
+  }
+}
