@@ -30,9 +30,14 @@ gulp.task('ts', function(){
 });
 
 gulp.task('webpack', function() {
-  return gulp.src('dist/main.js')
+  return watch('dist/main.js', function(){
+    gulp.src('dist/main.js')
     .pipe(webpack(require('./webpack.config.js')))
     .pipe(gulp.dest('dist/'));
+  });
+  // return gulp.src('dist/main.js')
+  //   .pipe(webpack(require('./webpack.config.js')))
+  //   .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('default', ['markup','css','ts','webpack']);

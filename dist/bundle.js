@@ -44,51 +44,107 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports, __webpack_require__(1)], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports, sub_1) {
-	    "use strict";
-	    exports.__esModule = true;
-	    var myTest = new sub_1.foo();
-	    myTest.okNow();
-	    var GameWorld = (function () {
-	        function GameWorld(canvasId) {
-	            this.canvas = document.getElementById(canvasId);
-	            console.log("canvas created " + this.canvas);
-	        }
-	        return GameWorld;
-	    }());
-	    var Game = (function () {
-	        function Game(title) {
-	            this.title = title;
-	        }
-	        Game.prototype.init = function () {
-	            console.log("Loading..." + this.title);
-	            var World = new GameWorld('canvas');
-	        };
-	        return Game;
-	    }());
-	    var gameOfThrones = new Game("George R.R. Martins Game of Thrones");
-	    gameOfThrones.init();
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	"use strict";
+	exports.__esModule = true;
+	var character_1 = __webpack_require__(1);
+	var sub_1 = __webpack_require__(2);
+	var variables_1 = __webpack_require__(3);
+	var myTest = new sub_1.foo();
+	myTest.okNow();
+	var GameWorld = (function () {
+	    function GameWorld(canvasId) {
+	        this.canvas = document.getElementById(canvasId);
+	        console.log("canvas created " + this.canvas);
+	    }
+	    return GameWorld;
+	}());
+	var Game = (function () {
+	    function Game(title) {
+	        this.title = title;
+	    }
+	    Game.prototype.init = function () {
+	        console.log("Loading..." + this.title);
+	        //Load Game World
+	        var World = new GameWorld('canvas');
+	        //Load characters
+	        var jonSnow = new character_1.Character('Jon Snow', 100, variables_1.ani.jonsnow);
+	        console.log(jonSnow);
+	    };
+	    return Game;
+	}());
+	var gameOfThrones = new Game("George R.R. Martins Game of Thrones");
+	var studentList = [
+	    { name: "tom", age: 1, phone: 2 },
+	    { name: "charles", age: 2 }
+	];
+	function getGenerics(item) {
+	    // item.forEach(element => {
+	    //   console.log(element.name+element.age);
+	    // });
+	    item.forEach(function (e) {
+	        console.log(e.phone);
+	    });
+	}
+	getGenerics(studentList);
 
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [__webpack_require__, exports], __WEBPACK_AMD_DEFINE_RESULT__ = function (require, exports) {
-	    "use strict";
-	    exports.__esModule = true;
-	    var foo = (function () {
-	        function foo() {
-	        }
-	        foo.prototype.okNow = function () {
-	            console.log("OMGGGG");
-	        };
-	        return foo;
-	    }());
-	    exports.foo = foo;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	"use strict";
+	exports.__esModule = true;
+	var Character = (function () {
+	    function Character(name, hp, animations) {
+	        this.name = name;
+	        this.hp = hp;
+	        this.animations = animations;
+	    }
+	    return Character;
+	}());
+	exports.Character = Character;
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+	"use strict";
+	exports.__esModule = true;
+	var foo = (function () {
+	    function foo() {
+	    }
+	    foo.prototype.okNow = function () {
+	        console.log("OMGGGG");
+	    };
+	    return foo;
+	}());
+	exports.foo = foo;
 	//hello 
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+	"use strict";
+	exports.__esModule = true;
+	exports.ani = {
+	    jonsnow: [
+	        'assets/characters/sauske/run/slice_1_0.png',
+	        'assets/characters/sauske/run/slice_1_1.png',
+	        'assets/characters/sauske/run/slice_1_2.png',
+	        'assets/characters/sauske/run/slice_1_3.png',
+	        'assets/characters/sauske/run/slice_1_4.png'
+	    ],
+	    nightking: [
+	        'assets/characters/sauske/run/slice_1_0.png',
+	        'assets/characters/sauske/run/slice_1_1.png',
+	        'assets/characters/sauske/run/slice_1_2.png',
+	        'assets/characters/sauske/run/slice_1_3.png',
+	        'assets/characters/sauske/run/slice_1_4.png'
+	    ]
+	};
 
 
 /***/ })
